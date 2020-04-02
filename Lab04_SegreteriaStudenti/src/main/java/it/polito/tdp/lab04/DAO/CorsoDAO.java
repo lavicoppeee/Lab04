@@ -153,5 +153,33 @@ public class CorsoDAO {
 
 	
 	}
+	
+	
+ public boolean iscrizioneStudenteACorso(Integer mat, String nomeC) {
+		
+		String sql= "INSERT INTO iscrizione(matricola,codins) "+
+		             "VALUES(?,?) "; 
+		
+		try {
+			
+			Corso c=this.getCorso(new Corso(null,null,nomeC,null));
+			
+			Connection conn=ConnectDB.getConnection();
+			PreparedStatement st= conn.prepareStatement(sql);
+			st.setInt(1, mat);
+			st.setString(2, c.getCodins());
+			ResultSet rs=st.executeQuery();
+			
+			conn.close();
+			return true;
+			
+		} catch(SQLException e) {
+		
+			return false;
+			
+		}
+
+	
+	}
 
 }

@@ -229,10 +229,11 @@ public class FXMLController {
     		return;
     	}
     	
-    	if(!model.esisisteStudenteACorso(matricola, corso)) {
-    		txtRisultato.setText("Lo studente non è iscritto al corso");
+    	if(model.esisisteStudenteACorso(matricola, corso)) {
+    		txtRisultato.setText("Lo studente è già iscritto");
     	}
-    	txtRisultato.setText("Lo studente è già iscritto al corso");
+    	model.iscrizioneStudenteACorso(matricola, corso);
+    	txtRisultato.setText("Lo studente è stato appena iscritto al corso");
     }
 
     @FXML

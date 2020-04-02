@@ -46,5 +46,11 @@ public class Model {
 		return corsoDAO.esisisteStudenteACorso(mat, nomeC);
 		
 	}
+	
+	public boolean iscrizioneStudenteACorso(Integer mat, String nomeC) {
+		corsoDAO=new CorsoDAO();
+		return corsoDAO.iscrizioneStudenteACorso(mat, nomeC);
+		
+	}
 }
 
